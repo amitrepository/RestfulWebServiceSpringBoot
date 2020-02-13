@@ -3,7 +3,7 @@ package com.restfulwebservices.versioning;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//Basic way to do versioning
+//Basic way to do versioning//
 @RestController
 public class PersonVersioningController {
 	

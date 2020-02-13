@@ -19,6 +19,7 @@ public class PersonV2 {
 
 	public PersonV2() {
 		super();
+		
 	}
 	
 	
