@@ -10,9 +10,11 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+@Entity(name = "USER")
+public class UserEntity {
 
-public class User {
-
+	@Id
+	@GeneratedValue
 	private Integer id;
 
 	@Size(min = 2, message = "Name should have minimum two Character")
@@ -21,19 +23,29 @@ public class User {
 	@Past(message = "Date should be past or old date")
 	private Date birthDate;
 
-	
-	
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
 
-	protected User() {
+	/*
+	 * @OneToMany(mappedBy = "user") private List<Post> posts;
+	 */
+	protected UserEntity() {
 
 	}
 
-	public User(Integer id, String name, Date birthDate) {
+	public UserEntity(Integer id, String name, Date birthDate) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.birthDate = birthDate;
 	}
+
+	/*
+	 * public List<Post> getPosts() { return posts; }
+	 */
+	/*
+	 * public void setPosts(List<Post> posts) { this.posts = posts; }
+	 */
 
 	public Integer getId() {
 		return id;
@@ -57,6 +69,20 @@ public class User {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("User [id=%s, name=%s, birthDate=%s]", id, name, birthDate);
 	}
 
 }
