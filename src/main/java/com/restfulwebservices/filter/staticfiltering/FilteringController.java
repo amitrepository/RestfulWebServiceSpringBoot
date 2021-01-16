@@ -14,8 +14,6 @@ public class FilteringController {
 		return new SomeBean("value1","value2","value3");
 		
 	}
-
-	
 	
 	@GetMapping("/filtering-list")
 	public List<SomeBean> retriveListofSomeBean(){
